@@ -11,11 +11,16 @@ defmodule Micro.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto Repo with the application.
-      supervisor(Micro.Repo, [])
+      supervisor(Micro.Repo, []),
+
+      # Start the web app through the router.
+      Plug.Adapters.Cowboy.child_spec(
+        :http, Micro.Router, [], [
+          port: Application.get_env(:micro, Micro.Router)[:port]
+        ]
+      ),
     ]
 
-    # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Micro.Supervisor]
     Supervisor.start_link(children, opts)
   end

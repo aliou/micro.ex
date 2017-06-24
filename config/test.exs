@@ -5,3 +5,6 @@ config :micro, Micro.Repo,
   database: "micro_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :micro, Micro.Router,
+  port: 4001
