@@ -34,6 +34,10 @@ defmodule Micro.Mixfile do
       {:ecto, "~> 2.0"},
       {:postgrex, "~> 0.11"},
 
+      # Web.
+      {:cowboy, "~> 1.0.0"},
+      {:plug, "~> 1.0"},
+
       # Tests
       {:faker, "~> 0.8", only: [:dev, :test]},
     ]
