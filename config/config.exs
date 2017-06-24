@@ -5,7 +5,5 @@ use Mix.Config
 # Tell ecto what our repos are so the task work correctly.
 config :micro, ecto_repos: [Micro.Repo]
 
-config :micro, Micro.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "micro_repo",
-  hostname: "localhost"
+# Per environment configuration.
+import_config "#{Mix.env}.exs"
