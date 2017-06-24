@@ -33,6 +33,9 @@ defmodule Micro.Mixfile do
       # Database wrapper and query generation.
       {:ecto, "~> 2.0"},
       {:postgrex, "~> 0.11"},
+
+      # Tests
+      {:faker, "~> 0.8", only: [:dev, :test]},
     ]
   end
 end
