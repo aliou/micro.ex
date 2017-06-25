@@ -37,6 +37,7 @@ defmodule Micro.Mixfile do
       # Web.
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 1.0"},
+      {:logster, "~> 0.4"},
 
       # Tests
       {:faker, "~> 0.8", only: [:dev, :test]},

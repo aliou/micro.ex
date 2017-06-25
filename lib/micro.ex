@@ -9,7 +9,7 @@ defmodule Micro do
 
     use Plug.Router
 
-    plug Plug.Logger
+    plug Logster.Plugs.Logger
     plug :match
     plug :dispatch
 
