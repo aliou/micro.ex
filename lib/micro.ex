@@ -1,5 +1,12 @@
 defmodule Micro do
+  @moduledoc false
+
   defmodule Router do
+    @moduledoc """
+    The router for the Micro application. This will dispatch the actual routes
+    to other plugs.
+    """
+
     use Plug.Router
 
     plug Plug.Logger
