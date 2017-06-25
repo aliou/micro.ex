@@ -40,6 +40,10 @@ defmodule Micro.Mixfile do
 
       # Tests
       {:faker, "~> 0.8", only: [:dev, :test]},
+
+      # Development tools.
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:cortex, "~> 0.1", only: [:dev, :test]},
     ]
   end
 end
