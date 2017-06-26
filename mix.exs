@@ -39,6 +39,9 @@ defmodule Micro.Mixfile do
       {:plug, "~> 1.0"},
       {:logster, "~> 0.4"},
 
+      # JSON generation and Parsing.
+      {:poison, "~> 3.1.0"},
+
       # Tests
       {:faker, "~> 0.8", only: [:dev, :test]},
 

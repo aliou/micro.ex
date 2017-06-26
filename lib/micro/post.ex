@@ -7,6 +7,7 @@ defmodule Micro.Post do
 
   use Ecto.Schema
 
+  @derive {Poison.Encoder, only: [:id, :content]}
   @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "posts" do
