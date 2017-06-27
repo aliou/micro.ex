@@ -42,6 +42,9 @@ defmodule Micro.Mixfile do
       # JSON generation and Parsing.
       {:poison, "~> 3.1.0"},
 
+      # Markdown to HTML conversion.
+      {:cmark, "~> 0.7"},
+
       # Tests
       {:faker, "~> 0.8", only: [:dev, :test]},
 

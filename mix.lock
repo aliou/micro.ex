@@ -1,4 +1,5 @@
 %{"bunt": {:hex, :bunt, "0.2.0", "951c6e801e8b1d2cbe58ebbd3e616a869061ddadcc4863d0a2182541acae9a38", [:mix], []},
+  "cmark": {:hex, :cmark, "0.7.0", "cf20106714b35801df3a2250a8ca478366f93ad6067df9d6815c80b2606ae01e", [:make, :mix], []},
   "connection": {:hex, :connection, "1.0.4", "a1cae72211f0eef17705aaededacac3eb30e6625b04a6117c1b2db6ace7d5976", [:mix], []},
   "cortex": {:hex, :cortex, "0.1.0", "8d7a58e07659892b8da90d5eb2ea42cfd6fb0461c25b0bef4a4087b93b576a0d", [:mix], [{:exfswatch, "~> 0.4", [hex: :exfswatch, optional: false]}]},
   "cowboy": {:hex, :cowboy, "1.0.4", "a324a8df9f2316c833a470d918aaf73ae894278b8aa6226ce7a9bf699388f878", [:make, :rebar], [{:cowlib, "~> 1.0.0", [hex: :cowlib, optional: false]}, {:ranch, "~> 1.0", [hex: :ranch, optional: false]}]},
