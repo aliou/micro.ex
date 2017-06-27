@@ -20,4 +20,10 @@ defmodule Micro.Post do
     |> Ecto.Changeset.cast(params, [:content])
     |> Ecto.Changeset.validate_required([:content])
   end
+
+  # TODO: Figure out a more "Elixiry" way to do this.
+  @spec content_to_html(Micro.Post) :: String.t
+  def content_to_html(post) do
+    Cmark.to_html(post.content)
+  end
 end
