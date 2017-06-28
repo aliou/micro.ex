@@ -13,6 +13,9 @@ defmodule Micro do
     plug :match
     plug :dispatch
 
+    forward "/feed.json", to: Feed.Router,
+      init_opts: [feed_builder: Micro.FeedBuilder]
+
     match _ do
       send_resp(conn, 404, "")
     end
