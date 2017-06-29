@@ -3,7 +3,17 @@ defmodule Feed.RouterTest do
   use Plug.Test
 
   defmodule TestFeedBuilder do
-    def build, do: []
+    @behaviour Feed.Builder
+
+    def build_feed do
+      %Feed{
+        title: Faker.Lorem.sentence,
+        feed_url: Faker.Internet.url,
+        home_page_url: Faker.Internet.url
+      }
+    end
+
+    def build_entries, do: []
   end
 
   @invalid_options Feed.Router.init([])
