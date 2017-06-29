@@ -8,14 +8,14 @@ defmodule Feed do
   @default_feed_version "https://jsonfeed.org/version/1"
 
   defstruct [:title, version: @default_feed_version, home_page_url: nil,
-             feed_url: nil, entries: []]
+             feed_url: nil, items: []]
 
   @type t :: %__MODULE__{
     version: String.t,
     title: String.t,
     home_page_url: String.t,
     feed_url: String.t,
-    entries: [Feed.Entry.t]
+    items: [Feed.Item.t]
   }
 end
 

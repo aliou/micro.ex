@@ -20,7 +20,7 @@ defmodule Micro.FeedBuilder do
   end
 
   @impl Feed.Builder
-  def build_entries do
+  def build_items do
     fetch_posts()
     |> Enum.map(&entry_from_post/1)
   end

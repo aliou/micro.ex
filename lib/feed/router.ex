@@ -18,9 +18,9 @@ defmodule Feed.Router do
   get "/" do
     builder = conn.private.feed_builder
     feed = builder.build_feed()
-    entries = builder.build_entries()
+    items = builder.build_items()
 
-    feed = %{feed | entries: entries}
+    feed = %{feed | items: items}
 
     conn
     |> put_resp_content_type("application/json")

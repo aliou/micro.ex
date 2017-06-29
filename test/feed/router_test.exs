@@ -13,7 +13,7 @@ defmodule Feed.RouterTest do
       }
     end
 
-    def build_entries, do: []
+    def build_items, do: []
   end
 
   @invalid_options Feed.Router.init([])
