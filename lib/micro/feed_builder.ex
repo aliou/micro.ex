@@ -34,7 +34,7 @@ defmodule Micro.FeedBuilder do
     date_modified =
       if post.inserted_at != post.updated_at, do: post.updated_at, else: nil
 
-      %Feed.Entry{
+      %Feed.Item{
         id: post.id,
         content_html: content_html,
         date_published: post.inserted_at,

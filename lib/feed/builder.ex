@@ -3,7 +3,7 @@ defmodule Feed.Builder do
   Behaviour defining what is a Feed builder
   """
 
-  @callback build_entries() :: [Feed.Entry.t]
+  @callback build_entries() :: [Feed.Item.t]
 
   @callback build_feed() :: Feed.t
 end

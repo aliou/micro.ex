@@ -1,11 +1,11 @@
-defmodule Feed.EntryTest do
+defmodule Feed.ItemTest do
   use ExUnit.Case, async: true
 
   describe ".encode/2" do
     test "it encodes the feed without the nil attributes" do
       id = Faker.Code.isbn
       content_html = Faker.Lorem.sentence
-      feed = %Feed.Entry{id: id, content_html: content_html}
+      feed = %Feed.Item{id: id, content_html: content_html}
 
       nil_attributes =
         feed

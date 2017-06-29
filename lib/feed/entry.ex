@@ -1,4 +1,4 @@
-defmodule Feed.Entry do
+defmodule Feed.Item do
   @moduledoc """
   Defines a Feed entry. By default, we require the id and the content in HTML,
   following the spec.
@@ -25,7 +25,7 @@ defmodule Feed.Entry do
 end
 
 # Remove the nil values from the JSON representation of the Feed entry.
-defimpl Poison.Encoder, for: Feed.Entry do
+defimpl Poison.Encoder, for: Feed.Item do
   def encode(feed, options) do
     feed
     |> Map.from_struct
