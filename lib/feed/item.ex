@@ -26,11 +26,27 @@ end
 
 # Remove the nil values from the JSON representation of the Feed entry.
 defimpl Poison.Encoder, for: Feed.Item do
-  def encode(feed, options) do
-    feed
+  def encode(item, options) do
+    date_published = format_date(item.date_published)
+    date_modified = format_date(item.date_modified)
+
+    item
     |> Map.from_struct
+    |> Map.put(:date_published, date_published)
+    |> Map.put(:date_modified, date_modified)
     |> Enum.reject(fn {_, v} -> is_nil(v) end)
     |> Map.new
     |> Poison.Encoder.encode(options)
+  end
+
+  # TODO: Make a simpler RFC3339 formatter.
+  defp format_date(nil), do: nil
+  defp format_date(date) do
+    {:ok, formatted_date} =
+      date
+      |> Timex.to_datetime
+      |> Timex.format("{RFC3339}")
+
+    formatted_date
   end
 end
