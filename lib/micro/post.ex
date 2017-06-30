@@ -24,6 +24,6 @@ defmodule Micro.Post do
   # TODO: Figure out a more "Elixiry" way to do this.
   @spec content_to_html(Micro.Post) :: String.t
   def content_to_html(post) do
-    Cmark.to_html(post.content)
+    Earmark.as_html!(post.content)
   end
 end

@@ -46,7 +46,7 @@ defmodule Micro.Mixfile do
       {:timex, "~> 3.0"},
 
       # Markdown to HTML conversion.
-      {:cmark, "~> 0.7"},
+      {:earmark, "~> 1.2.2"},
 
       # Releases
       {:distillery, "~> 1.4"},
