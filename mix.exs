@@ -48,6 +48,9 @@ defmodule Micro.Mixfile do
       # Markdown to HTML conversion.
       {:cmark, "~> 0.7"},
 
+      # Releases
+      {:distillery, "~> 1.4"},
+
       # Tests
       {:faker, "~> 0.8", only: [:dev, :test]},
 
