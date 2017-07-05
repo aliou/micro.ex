@@ -1,4 +1,4 @@
-defmodule Micro.PostText do
+defmodule Micro.PostTest do
   use ExUnit.Case, async: true
 
   alias Micro.Post
