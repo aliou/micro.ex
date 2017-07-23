@@ -56,7 +56,7 @@ defmodule Micro.Mixfile do
 
       # Development tools.
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:cortex, "~> 0.1", only: [:dev, :test]},
+      {:mix_test_watch, "~> 0.3", only: :dev, runtime: false},
     ]
   end
 end
