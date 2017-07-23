@@ -38,7 +38,11 @@ defmodule Micro.FeedBuilder do
         id: post.id,
         content_html: content_html,
         date_published: post.inserted_at,
-        date_modified: date_modified
+        date_modified: date_modified,
+        external_url: post_path(post)
       }
   end
+
+  # TODO: dude, seriously?
+  defp post_path(post), do: "https://micro.aliou.me/p/#{post.id}"
 end
