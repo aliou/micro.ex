@@ -39,13 +39,12 @@ defimpl Poison.Encoder, for: Feed.Item do
     |> Poison.Encoder.encode(options)
   end
 
-  # TODO: Make a simpler RFC3339 formatter.
   defp format_date(nil), do: nil
   defp format_date(date) do
     {:ok, formatted_date} =
       date
-      |> Timex.to_datetime
-      |> Timex.format("{RFC3339}")
+      |> DateTime.from_naive!("Etc/UTC")
+      |> Feed.RFC3339.format()
 
     formatted_date
   end
