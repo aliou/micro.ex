@@ -6,21 +6,17 @@ defmodule Micro.Application do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
-    # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto Repo with the application.
-      supervisor(Micro.Repo, []),
-
-      # Start the web app through the router.
-      Plug.Adapters.Cowboy.child_spec(
-        :http,
-        Micro.Router,
-        [],
-        port: Application.get_env(:micro, Micro.Router)[:port]
-      )
+      Micro.Repo,
+      {
+        Plug.Adapters.Cowboy,
+        scheme: :http, plug: Micro.Router, options: [port: port()]
+      }
     ]
 
     opts = [strategy: :one_for_one, name: Micro.Supervisor]
     Supervisor.start_link(children, opts)
   end
+
+  defp port, do: Application.get_env(:micro, Micro.Router)[:port] || 4000
 end
