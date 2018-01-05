@@ -31,7 +31,7 @@ defmodule Micro.Mixfile do
   defp deps do
     [
       # Database wrapper and query generation.
-      {:ecto, "~> 2.0"},
+      {:ecto, "~> 2.1"},
       {:postgrex, "~> 0.11"},
 
       # Web.
