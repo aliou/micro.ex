@@ -4,7 +4,7 @@ config :micro, Micro.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "micro_test",
   hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+  pool: Ecto.Adapters.SQL.Sandbox,
+  loggers: []
 
-config :micro, Micro.Router,
-  port: 4001
+config :micro, Micro.Router, port: 4001
