@@ -12,20 +12,25 @@ defmodule Micro.Router do
   plug :match
   plug :dispatch
 
-  forward "/feed.json", to: Feed.Router,
+  forward "/feed.json",
+    to: Feed.Router,
     init_opts: [feed_builder: Micro.FeedBuilder]
+
+  get "/" do
+    resp_html(conn, "<h3>A list of posts</h3>")
+  end
 
   # TODO: Extract this into its own router, and forward requests from `/p/?*`
   # to it.
   get "/p/:id" do
     case Repo.get(Post, conn.params["id"]) do
-      nil  -> send_resp(conn, 404, "")
+      nil -> send_resp(conn, 404, "")
       post -> resp_html(conn, Post.content_to_html(post))
     end
   end
 
   match _ do
-    send_resp(conn, 404, "")
+    send_resp(conn, 404, "not found")
   end
 
   defp resp_html(conn, content, status \\ 200) do

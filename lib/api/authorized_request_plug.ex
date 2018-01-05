@@ -12,8 +12,7 @@ defmodule Micro.Api.AuthorizedRequestPlug do
   def call(%Plug.Conn{req_headers: headers} = conn, options) do
     with authorization_header <- List.keyfind(headers, "authorization", 0),
          {"authorization", api_key} <- authorization_header,
-         ^api_key <- options[:api_key]
-    do
+         ^api_key <- options[:api_key] do
       conn
     else
       _ ->

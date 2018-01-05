@@ -22,7 +22,7 @@ defmodule Micro.Post do
   end
 
   # TODO: Figure out a more "Elixiry" way to do this.
-  @spec content_to_html(Micro.Post) :: String.t
+  @spec content_to_html(Micro.Post) :: String.t()
   def content_to_html(post) do
     Earmark.as_html!(post.content)
   end

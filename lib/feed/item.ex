@@ -6,22 +6,32 @@ defmodule Feed.Item do
 
   @enforce_keys [:id, :content_html]
 
-  defstruct [:id, :content_html, url: nil, external_url: nil, title: nil,
-             content_text: nil, summary: nil, date_published: nil,
-             date_modified: nil, author: nil, tags: []]
+  defstruct [
+    :id,
+    :content_html,
+    url: nil,
+    external_url: nil,
+    title: nil,
+    content_text: nil,
+    summary: nil,
+    date_published: nil,
+    date_modified: nil,
+    author: nil,
+    tags: []
+  ]
 
   @type t :: %__MODULE__{
-    id: String.t,
-    url: String.t,
-    external_url: String.t,
-    title: String.t,
-    content_html: String.t,
-    content_text: String.t,
-    summary: String.t,
-    date_published: DateTime.t,
-    date_modified: DateTime.t,
-    tags: [String.t]
-  }
+          id: String.t(),
+          url: String.t(),
+          external_url: String.t(),
+          title: String.t(),
+          content_html: String.t(),
+          content_text: String.t(),
+          summary: String.t(),
+          date_published: DateTime.t(),
+          date_modified: DateTime.t(),
+          tags: [String.t()]
+        }
 end
 
 # Remove the nil values from the JSON representation of the Feed entry.
@@ -31,15 +41,16 @@ defimpl Poison.Encoder, for: Feed.Item do
     date_modified = format_date(item.date_modified)
 
     item
-    |> Map.from_struct
+    |> Map.from_struct()
     |> Map.put(:date_published, date_published)
     |> Map.put(:date_modified, date_modified)
     |> Enum.reject(fn {_, v} -> is_nil(v) end)
-    |> Map.new
+    |> Map.new()
     |> Poison.Encoder.encode(options)
   end
 
   defp format_date(nil), do: nil
+
   defp format_date(date) do
     {:ok, formatted_date} =
       date

@@ -13,10 +13,11 @@ defmodule Micro.Application do
 
       # Start the web app through the router.
       Plug.Adapters.Cowboy.child_spec(
-        :http, Micro.Router, [], [
-          port: Application.get_env(:micro, Micro.Router)[:port]
-        ]
-      ),
+        :http,
+        Micro.Router,
+        [],
+        port: Application.get_env(:micro, Micro.Router)[:port]
+      )
     ]
 
     opts = [strategy: :one_for_one, name: Micro.Supervisor]

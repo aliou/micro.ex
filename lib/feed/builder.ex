@@ -25,7 +25,7 @@ defmodule Feed.Builder do
         end
   """
 
-  @callback build_items() :: [Feed.Item.t]
+  @callback build_items() :: [Feed.Item.t()]
 
-  @callback build_feed() :: Feed.t
+  @callback build_feed() :: Feed.t()
 end
