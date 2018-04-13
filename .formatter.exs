@@ -4,7 +4,8 @@ custom_locals_without_parens = [
 
 [
   inputs: [
-    "lib/**/*.{ex,exs}"
+    "{mix,.formatter}.exs",
+    "{config,lib,test}/**/*.{ex,exs}"
   ],
   line_length: 80,
   locals_without_parens: custom_locals_without_parens,

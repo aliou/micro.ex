@@ -31,18 +31,22 @@ defmodule Micro.Api.AuthorizedRequestPlugTest do
 
   test "returns 403 when the api key is incorrect" do
     conn = conn(:get, "/")
-    conn = conn
-           |> put_req_header("authorization", @invalid_api_key)
-           |> TestRouter.call(@options)
+
+    conn =
+      conn
+      |> put_req_header("authorization", @invalid_api_key)
+      |> TestRouter.call(@options)
 
     assert conn.status == 403
   end
 
   test "returns 200 when the api key correct" do
     conn = conn(:get, "/")
-    conn = conn
-           |> put_req_header("authorization", @valid_api_key)
-           |> TestRouter.call(@options)
+
+    conn =
+      conn
+      |> put_req_header("authorization", @valid_api_key)
+      |> TestRouter.call(@options)
 
     assert conn.status == 200
   end

@@ -21,7 +21,8 @@ defmodule Micro.RouterTest do
     end
 
     test "it returns 200 and the HTML version of the body when the post is found" do
-      content = Faker.Lorem.sentence
+      content = Faker.Lorem.sentence()
+
       post =
         %Micro.Post{}
         |> Micro.Post.changeset(%{content: content})

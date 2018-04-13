@@ -11,4 +11,4 @@ config :micro, Micro.Router,
   port: String.to_integer(System.get_env("PORT") || "4000")
 
 # Per environment configuration.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

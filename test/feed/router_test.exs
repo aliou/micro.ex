@@ -7,9 +7,9 @@ defmodule Feed.RouterTest do
 
     def build_feed do
       %Feed{
-        title: Faker.Lorem.sentence,
-        feed_url: Faker.Internet.url,
-        home_page_url: Faker.Internet.url
+        title: Faker.Lorem.sentence(),
+        feed_url: Faker.Internet.url(),
+        home_page_url: Faker.Internet.url()
       }
     end
 
@@ -17,7 +17,7 @@ defmodule Feed.RouterTest do
   end
 
   @invalid_options Feed.Router.init([])
-  @valid_options Feed.Router.init([feed_builder: TestFeedBuilder])
+  @valid_options Feed.Router.init(feed_builder: TestFeedBuilder)
 
   describe ".call/2" do
     test "it raises when the feed builder option is missing" do
@@ -45,7 +45,7 @@ defmodule Feed.RouterTest do
 
       {:ok, parsed_body} = Poison.decode(conn.resp_body)
 
-      key_in_feed = fn(key) -> Map.has_key?(parsed_body, key) end
+      key_in_feed = fn key -> Map.has_key?(parsed_body, key) end
       assert Enum.all?(top_level_key, key_in_feed)
     end
   end
