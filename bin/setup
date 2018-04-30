@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+echo 'Installing mix dependencies...'
+mix deps.get
+
+echo 'Compiling application...'
+mix compile
+
+echo 'Creating database...'
+mix do ecto.create, ecto.migrate
