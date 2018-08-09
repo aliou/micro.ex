@@ -12,13 +12,16 @@ defmodule Micro.Post do
 
   schema "posts" do
     field :content, :string
+    field :slug, :string
     timestamps()
   end
 
   def changeset(post, params \\ %{}) do
     post
-    |> Ecto.Changeset.cast(params, [:content])
+    |> Ecto.Changeset.cast(params, [:content, :slug])
     |> Ecto.Changeset.validate_required([:content])
+    |> Ecto.Changeset.validate_length(:slug, max: 25)
+    |> Micro.Changeset.nullable_unique_constraint(:slug)
   end
 
   # TODO: Figure out a more "Elixiry" way to do this.
