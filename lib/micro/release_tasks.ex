@@ -48,6 +48,5 @@ defmodule Micro.ReleaseTasks do
     Ecto.Migrator.run(Micro.Repo, migrations_path(app), :up, all: true)
   end
 
-  defp migrations_path(app),
-    do: Path.join([priv_dir(app), "repo", "migrations"])
+  defp migrations_path(app), do: Path.join([priv_dir(app), "repo", "migrations"])
 end

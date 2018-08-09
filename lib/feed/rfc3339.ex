@@ -35,8 +35,7 @@ defmodule Feed.RFC3339 do
 
   defp pad(d, length \\ 2)
 
-  defp pad(d, length) when is_number(d),
-    do: d |> Integer.to_string() |> pad(length)
+  defp pad(d, length) when is_number(d), do: d |> Integer.to_string() |> pad(length)
 
   defp pad(digit, length), do: String.pad_leading(digit, length, "0")
 

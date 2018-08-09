@@ -32,8 +32,7 @@ defmodule Micro.FeedBuilder do
   defp entry_from_post(post) do
     content_html = Micro.Post.content_to_html(post)
 
-    date_modified =
-      if post.inserted_at != post.updated_at, do: post.updated_at, else: nil
+    date_modified = if post.inserted_at != post.updated_at, do: post.updated_at, else: nil
 
     %Feed.Item{
       id: post.id,
