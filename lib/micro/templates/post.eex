@@ -1,0 +1,2 @@
+<p><%= @post.id %></p>
+<p><%= Micro.Post.content_to_html(@post) %></p>
