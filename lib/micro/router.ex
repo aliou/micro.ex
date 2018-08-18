@@ -7,6 +7,8 @@ defmodule Micro.Router do
   use Plug.Router
   import Micro.Router.Utils, only: [redirect: 2, not_found: 1]
 
+  plug Plug.Static, at: "/", from: :micro
+
   if Mix.env() != :test do
     plug Logster.Plugs.Logger
   end
