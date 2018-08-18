@@ -1,2 +1,5 @@
-<p><%= @post.id %></p>
-<p><%= Micro.Post.content_to_html(@post) %></p>
+<article>
+  <a href="/p/<%= @post.id %>">#</a>
+  <time><%= @post.inserted_at %></time>
+  <p><%= Micro.Post.content_to_html(@post) %></p>
+</article>

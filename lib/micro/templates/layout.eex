@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="/styles.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Aliou Diallo's Micro blog.">
     <meta name="author" content="Aliou Diallo">
@@ -12,7 +12,7 @@
     <title>Micro</title>
   </head>
 
-  <body class='helvetica'>
+  <body>
     <%= render_partial @view_template, partial_assigns %>
   </body>
 </html>
